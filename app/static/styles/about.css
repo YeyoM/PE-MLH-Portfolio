@@ -97,12 +97,29 @@ article {
 
 .about-paragraph p {
   font-family: Tahoma;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: lighter;
   color: #fff;
   text-align: start;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  line-height: 1.65rem;
+}
+
+.about-paragraph ul {
+  list-style: inside;
+  padding: 0;
+  margin: 0;
+}
+
+.about-paragraph ul li {
+  font-family: Tahoma;
+  font-size: 1rem;
+  font-weight: lighter;
+  color: #fff;
+  text-align: start;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .about-photo {
