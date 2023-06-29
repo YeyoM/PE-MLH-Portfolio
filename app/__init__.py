@@ -26,26 +26,32 @@ def projects():
     projects = [
         {
             "id": "1",
-            "title": "Project 1",
-            "image": "../static/projects/project1.jpg",
+            "title": "Lofi Terminal",
+            "image": "../static/projects/Lofi_terminal.png",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam.",
         },
         {
             "id": "2",
-            "title": "Project 2",
-            "image": "../static/projects/project1.jpg",
+            "title": "MazeSolver",
+            "image": "../static/projects/MazeSolver.png",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam.",
         },
         {
             "id": "3",
-            "title": "Project 3",
-            "image": "../static/projects/project1.jpg",
+            "title": "Past Portfolio",
+            "image": "../static/projects/Past_Portfolio.png",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam.",
         },
         {
             "id": "4",
-            "title": "Project 4",
-            "image": "../static/projects/project1.jpg",
+            "title": "Ye_Quotes",
+            "image": "../static/projects/Ye_Quotes.png",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam.",
+        },
+        {
+            "id": "5",
+            "title": "Cocktail Please",
+            "image": "../static/projects/Cocktail_Please.png",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae eros vitae nisl ultricies aliquam. Sed vitae eros vitae nisl ultricies aliquam.",
         }
     ]
