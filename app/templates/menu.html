@@ -1,35 +1,49 @@
 {% macro menu() -%}
-  <link type="text/css" rel="stylesheet" href="../static/styles/menu.css">
+<link type="text/css" rel="stylesheet" href="../static/styles/menu.css">
 
-  <div class="menu-wrapper">
-    <!-- Welcome Page -->
-    <a class="menu-button" href="/welcome">
+<div class="menu-wrapper">
+  <!-- Welcome Page -->
+  <a class="menu-button" href="/welcome">
+    <span class="popup" data-popuptext="Home">
       <img src="../static/icons/home.svg" alt="Line drawn house" />
-    </a>
+    </span>
+  </a>
 
-    <!-- About Me Page -->
-    <a class="menu-button" href="/about">
+  <!-- About Me Page -->
+  <a class="menu-button" href="/about">
+    <span class="popup" data-popuptext="About">
       <img src="../static/icons/about.svg" alt="letter i" />
-    </a>
+    </span>
+  </a>
 
-    <!-- Projects Page -->
-    <a class="menu-button" href="/projects">
+
+  <!-- Projects Page -->
+  <a class="menu-button" href="/projects">
+    <span class="popup" data-popuptext="Projects">
       <img src="../static/icons/book.svg" alt="Book icon" />
-    </a>
+    </span>
+  </a>
 
-    <!-- Experience Page -->
-    <a class="menu-button" href="/experience">
+  <!-- Experience Page -->
+  <a class="menu-button" href="/experience">
+    <span class="popup" data-popuptext="Experience">
       <img src="../static/icons/flag.svg" alt="Flag icon" />
-    </a>
+    </span>
+  </a>
 
-    <!-- Hobbies Page -->
-    <a class="menu-button" href="/hobbies">
+  <!-- Hobbies Page -->
+  <a class="menu-button" href="/hobbies">
+    <span class="popup" data-popuptext="Hobbies">
       <img src="../static/icons/paitbrush.svg" alt="Paitbrush icon" />
-    </a>
+    </span>
+  </a>
 
-    <!-- Travel Page -->
-    <a class="menu-button" href="/travel">
+  <!-- Travel Page -->
+  <a class="menu-button" href="/travel">
+    <span class="popup" data-popuptext="Travel">
       <img src="../static/icons/location.svg" alt="Pinpoint icon" />
-    </a>
-  </div>
+    </span>
+  </a>
+
+</div>
 {%- endmacro %}

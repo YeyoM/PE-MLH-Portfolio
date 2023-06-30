@@ -130,9 +130,13 @@ body {
 @media screen and (max-width: 860px) {
 
   .hobbies-container h1 {
-    font-size: 4rem;
+    font-size: 6rem;
     padding: 2rem 4rem;
     margin-bottom: -4rem;
+  }
+
+  .images-container {
+    margin-bottom: 5rem;
   }
 
   .images-container ul {

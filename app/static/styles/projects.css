@@ -197,6 +197,10 @@ body {
 
 @media screen and (max-width: 820px) {
 
+  .projects-container {
+    margin-bottom: 5rem;
+  }
+
   .projects-container ul {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -211,7 +215,7 @@ body {
 
   .projects-wrapper h1 {
     font-size: 6rem;
-    margin-top: 6rem;
+    margin-top: 3rem;
     margin-bottom: 2rem;
   }
 
