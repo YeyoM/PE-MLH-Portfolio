@@ -165,9 +165,11 @@ article {
   }
   .title h1 {
     font-size: 6rem;
+    margin-top: 3rem;
   }
   .experience-container {
     margin-top: 2rem;
+    margin-bottom: 5rem;
   }
 }
 

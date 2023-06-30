@@ -190,7 +190,7 @@ article {
   .about-container h1 {
     font-size: 6rem;
     margin-bottom: 0;
-    margin-top: 6rem;
+    margin-top: 3rem;
     align-self: center;
   }
 
@@ -203,6 +203,7 @@ article {
 
   .about-container {
     max-width: 600px;
+    margin-bottom: 5rem;
   }
 
   .about-photo {
