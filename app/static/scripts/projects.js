@@ -45,3 +45,15 @@ openModal4.addEventListener('click', () => {
 closeModal4.addEventListener('click', () => {
   modal4.close();
 })
+
+const openModal5 = document.getElementById('open-modal-5');
+const modal5 = document.getElementById('modal-5');
+const closeModal5 = document.getElementById('close-modal-5');
+
+openModal5.addEventListener('click', () => {
+  modal5.showModal();
+})
+
+closeModal5.addEventListener('click', () => {
+  modal5.close();
+})
