@@ -7,11 +7,7 @@
     <meta property="og:description" content="My Personal Portfolio">
     <link type="text/css" rel="stylesheet" href="../static/styles/travel.css">
     <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link href="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.css" rel="stylesheet" />
-    <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
-    <script src="../static/scripts/travel.js"></script>
-    <script src="../static/scripts/mapkick.js"></script>
     <title>Travel</title>
   </head>
   <body>
@@ -33,9 +29,12 @@
         <div id="map"></div>
       </div>
     </div>
-
-    <script>
-      window.addEventListener("load", () => loadMap());
-    </script>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    window.addEventListener("load", () => loadMap());
+  </script>
+  <script src="https://unpkg.com/maplibre-gl@2.4.0/dist/maplibre-gl.js"></script>
+  <script src="../static/scripts/travel.js"></script>
+  <script src="../static/scripts/mapkick.js"></script>
 </html>

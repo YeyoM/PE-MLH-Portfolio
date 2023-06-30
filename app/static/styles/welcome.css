@@ -114,6 +114,7 @@ h1, h2, h3, h4, p {
   transition: all 0.5s;
   z-index: 3;
   position: relative;
+  font-family: Verdana; 
 }
 
 .contact-button:hover {
@@ -177,6 +178,8 @@ h1, h2, h3, h4, p {
   column-gap: 2px;
 
   transition: all 0.5s;
+  font-family: Verdana;
+  font-size: 0.8rem;
 }
 
 .mail-text button {
