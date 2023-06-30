@@ -116,7 +116,7 @@ article {
 
 .about-paragraph ul li {
   font-family: Verdana;
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: lighter;
   color: #fff;
   text-align: start;
@@ -136,28 +136,14 @@ article {
   max-width: 300px;
   object-fit: cover;
   border-radius: 50%;
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(96,65,146,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55); 
+  box-shadow: 5px 5px 15px 5px rgba(96,65,146,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55);
 }
 
-.tech-stack-list {
-  padding: 0 1rem;
-}
-
-.tech-stack-list ul {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0;
-}
-
-.tech-stack-list svg {
-  width: 45px;
-  margin-right: 1.5rem;
-}
-
-.tech-stack-list img {
-  width: 45px;
-  margin-right: 1.5rem;
+.highlight {
+  background: linear-gradient(to right, #e7d3ff,#bcc0ff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 @media screen and (max-width: 1250px) {
