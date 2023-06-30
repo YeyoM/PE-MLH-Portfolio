@@ -87,11 +87,11 @@ def hobbies():
         },
         {
             "name": "Playing Basketball",
-            "image": "../static/hobbies/basketball.png"
+            "image": "../static/hobbies/basketball.PNG"
         },
         {
             "name": "Being with Friends pt.2",
-            "image": "../static/hobbies/friends_1.png"
+            "image": "../static/hobbies/friends_1.PNG"
         },
         {
             "name": "Playing Guitar",
