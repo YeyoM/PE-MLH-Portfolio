@@ -23,17 +23,9 @@
 
           <div class="contact-button-wrapper">
             <div class="buttons-wrapper">
-              <div class="contact-menu-button">
-                <a class="menu-button"id="mail-button" href="mailto:{{ email_address }}">
-                  <img src="../static/icons/mail.svg" alt="Mail send icon">
-                </a>
-                <span class="mail-text hidden-text">
-                  {{ email_address }}
-                  <button class="copy-btn" data-clipboard-text='{{ email_address }}'>
-                    <img src="../static/icons/copy.svg" alt="Copy icon">
-                  </button>
-                </span>
-              </div>
+              <a class="menu-button"id="mail-button" href="mailto:{{ email_address }}">
+                <img src="../static/icons/mail.svg" alt="Mail send icon">
+              </a>
   
               <a class="menu-button contact-menu-button" href="https://github.com/{{ github_username }}" target="_blank">
                 <img src="../static/icons/github.svg" alt="Github logo" />

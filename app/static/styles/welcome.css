@@ -156,7 +156,7 @@ h1, h2, h3, h4, p {
 
 .show-button-wrapper {
   scale: 1;
-  top: 7rem;
+  top: 105px;
 }
 
 .contact-menu-button {
@@ -275,5 +275,22 @@ h1, h2, h3, h4, p {
   .orb {
     width: 13rem;
     height: 13rem;
+  }
+}
+
+@media (max-height: 700px) {
+  body {
+    overflow: scroll;
+  }
+
+  .welcome-text {
+    position: absolute;
+    top: 10rem;
+    line-height: 0.9;
+  }
+
+  .show-button-wrapper {
+    scale: 1;
+    top: 140px;
   }
 }
