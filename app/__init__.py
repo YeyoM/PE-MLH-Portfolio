@@ -19,16 +19,16 @@ mydb = MySQLDatabase(
 
 class TimeLinePost(Model):
     name = CharField()
-    start_date = CharField()
-    end_date = CharField()
+    email = CharField()
     content = TextField()
     created_at = DateTimeField(default = datetime.datetime.now)
 
     class Meta:
         database = mydb
 
+
 mydb.connect()
-mydb. create_tables([TimeLinePost])
+mydb.create_tables([TimeLinePost])
 
 @app.route('/')
 def index():
@@ -128,10 +128,9 @@ def hobbies():
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     name = request.form['name']
-    start_date = request.form['start_date']
-    end_date = request.form['end_date']
     content = request.form['content']
-    timeline_post = TimeLinePost.create(name = name, start_date = start_date, end_date = end_date, content = content)
+    email = request.form['email']
+    timeline_post = TimeLinePost.create(name = name, content = content, email = email)
 
     return model_to_dict(timeline_post)
     
