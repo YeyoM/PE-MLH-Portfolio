@@ -1,7 +1,9 @@
 import os 
+import datetime
 from flask import Flask, render_template, request 
 from dotenv import load_dotenv
 from peewee import *
+from playhouse.shortcuts import model_to_dict
 
 load_dotenv()
 app = Flask(__name__)
@@ -15,7 +17,18 @@ mydb = MySQLDatabase(
         port = 3306
     )
 
-print(mydb)
+class TimeLinePost(Model):
+    name = CharField()
+    start_date = CharField()
+    end_date = CharField()
+    content = TextField()
+    created_at = DateTimeField(default = datetime.datetime.now)
+
+    class Meta:
+        database = mydb
+
+mydb.connect()
+mydb. create_tables([TimeLinePost])
 
 @app.route('/')
 def index():
@@ -111,3 +124,41 @@ def hobbies():
         },
     ]
     return render_template('hobbies.html', hobbies = hobbies)
+
+@app.route('/api/timeline_post', methods=['POST'])
+def post_time_line_post():
+    name = request.form['name']
+    start_date = request.form['start_date']
+    end_date = request.form['end_date']
+    content = request.form['content']
+    timeline_post = TimeLinePost.create(name = name, start_date = start_date, end_date = end_date, content = content)
+
+    return model_to_dict(timeline_post)
+    
+@app.route('/api/timeline_post', methods=['GET'])
+def get_time_line_posts():
+    return {
+        'timeline_post': [
+            model_to_dict(p)
+            for p in TimeLinePost.select().order_by(TimeLinePost.created_at.desc())
+        ]    
+    }
+
+@app.route('/api/timeline_post', methods=['DELETE'])
+def delete_time_line_posts():
+    if "id" in request.form:
+        id_ = request.form['id']
+        result = TimeLinePost.delete().where(TimeLinePost.id ==  id_).execute()
+        if result == 1:
+            return "Timeline post deleted successfully!"
+        else:
+            return "Error on deleting timeline post :(", 400
+    elif "name" in request.form:
+        name = request.form['name']
+        result = TimeLinePost.delete().where(TimeLinePost.name ==  name).execute()
+        if result == 1:
+            return "Timeline post deleted successfully!"
+        else:
+            return "Error on deleting timeline post :(", 400
+    else:
+        return "Bad request", 400
