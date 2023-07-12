@@ -17,6 +17,9 @@
     </div>
     {% import 'menu.html' as menu %}
     {{ menu.menu() }}
+    <div class="Notification" id="notification">
+
+    </div>
     <article>
       <h1>Timeline</h1>
       <section>
@@ -34,29 +37,91 @@
   </body>
   <script>
     const form = document.getElementById('form')
+    let name = document.getElementById('name')
+    let email = document.getElementById('email')
+    let content = document.getElementById('content')
+
+    let notification = document.getElementById('notification')
 
     form.addEventListener('submit', function(e) {
       e.preventDefault()
+
+      if (name.value == "") {
+        notification.style.display = "block"
+        notification.innerHTML = "Name is required"
+        notification.style.backgroundColor = "#FF5454"
+        setTimeout(function() {
+          notification.style.display = "none"
+        }, 3000)
+        return false
+      }
+
+      if (email.value == "") {
+        notification.style.display = "block"
+        notification.innerHTML = "Email is required"
+        notification.style.backgroundColor = "#FF5454"
+        setTimeout(function() {
+          notification.style.display = "none"
+        }, 3000)
+        return false
+      }
+
+      if (content.value == "") {
+        notification.style.display = "block"
+        notification.innerHTML = "Content is required"
+        notification.style.backgroundColor = "#FF5454"
+        setTimeout(function() {
+          notification.style.display = "none"
+        }, 3000)
+        return false
+      }
+
+      if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))) {
+        notification.style.display = "block"
+        notification.innerHTML = "Invalid email address"
+        notification.style.backgroundColor = "#FF5454"
+        setTimeout(function() {
+          notification.style.display = "none"
+        }, 3000)
+        return false
+      }
+      
       // parse form data as json
       const formData = new FormData(this)
       const data = {}
       for (let [key, value] of formData.entries()) {
         data[key] = value
       }
-      console.log(data)
+
       // send data to server
       fetch('/api/timeline_post', {
         method: 'POST',
         body: formData
       })
       .then(response => {
-        // if (!response.ok) {
-        //   throw new Error('Network response was not ok')
-        // }
+        if (!response.ok) {
+          notification.style.display = "block"
+          notification.innerHTML = "Something went wrong"
+          notification.style.backgroundColor = "#FF5454"
+          setTimeout(function() {
+            notification.style.display = "none"
+          }, 3000)
+          throw new Error(`Network response was not ok (${response.status})`)
+          return false
+        }
         response.json()
       })
       .then(data => {
         console.log(data)
+        name.value = ""
+        email.value = ""
+        content.value = ""
+        notification.style.display = "block"
+        notification.innerHTML = "Message sent"
+        notification.style.backgroundColor = "#99E399"
+        setTimeout(function() {
+          notification.style.display = "none"
+        }, 3000)
       })
     })
   </script>
