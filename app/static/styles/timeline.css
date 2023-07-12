@@ -59,6 +59,13 @@ body {
   z-index: -1;
 }
 
+.timeline-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .Notification {
   position: absolute;
   top: 0;
@@ -87,11 +94,12 @@ h1 {
   margin-right: auto;
 }
 
-section {
+.form-section {
   display: flex;
   justify-content: center;
   margin: 4rem 0 0 0;
   width: 100%;
+  max-width: 500px;
 }
 
 .form {
@@ -147,6 +155,48 @@ textarea {
 .submit:hover {
   background-color: #373F85;
   color: white;
+}
+
+.posts-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  max-width: 900px;
+  margin: 4rem 0;
+  border: 1px solid #373F85;
+}
+
+.post {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #373F85;
+}
+
+.content {
+  font-size: 1.2rem;
+  font-family: Verdana;
+  color: #f4f4f4;
+  padding: 0 1rem;
+}
+
+.name {
+  font-size: 1rem;
+  font-family: Verdana;
+  color: #f4f4f4;
+  padding: 0 1rem;
+  font-weight: 600;
+}
+
+.date {
+  font-size: 1rem;
+  font-family: Verdana;
+  color: #f4f4f4;
+  padding: 0 1rem;
+  font-weight: 600;
 }
 
 @keyframes blue-orb-movement {
