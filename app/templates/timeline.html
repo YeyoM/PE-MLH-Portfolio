@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta property="og:title" content="Personal Portfolio">
+    <meta property="og:description" content="My Personal Portfolio">
+    <link rel="icon" type="image/ico" href="../static/img/favicon.ico">
+    <link type="text/css" rel="stylesheet" href="../static/styles/timeline.css">
+    <title>Timeline</title>
+  </head>
+  <body>
+    <div class="noise-wrapper"></div>
+    <div class="glowing-orbs">
+      <div class="orb blue-orb"></div>
+      <div class="orb purple-orb"></div>
+    </div>
+    {% import 'menu.html' as menu %}
+    {{ menu.menu() }}
+    <article>
+      <h1>Timeline</h1>
+      <section>
+        <form action="" class="form" id="form">
+          <label for="name" class="label">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name..">
+          <label for="email" class="label">Email</label>
+          <input type="text" id="email" name="email" placeholder="Your email..">
+          <label for="content" class="label">Content</label>
+          <textarea id="content" name="content" placeholder="Write something.."></textarea>
+          <input type="submit" value="Submit" class="submit">
+        </form>
+      </section>
+    </article>
+  </body>
+  <script>
+    const form = document.getElementById('form')
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault()
+      // parse form data as json
+      const formData = new FormData(this)
+      const data = {}
+      for (let [key, value] of formData.entries()) {
+        data[key] = value
+      }
+      console.log(data)
+      // send data to server
+      fetch('/api/timeline_post', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => {
+        // if (!response.ok) {
+        //   throw new Error('Network response was not ok')
+        // }
+        response.json()
+      })
+      .then(data => {
+        console.log(data)
+      })
+    })
+  </script>
+</html>
