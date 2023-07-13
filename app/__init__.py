@@ -26,9 +26,19 @@ class TimeLinePost(Model):
     class Meta:
         database = mydb
 
+class Projects(Model):
+    title = CharField()
+    image = CharField()
+    description = TextField()
+    link = CharField()
+    created_at = DateTimeField(default = datetime.datetime.now)
+
+    class Meta:
+        database = mydb
 
 mydb.connect()
 mydb.create_tables([TimeLinePost])
+mydb.create_tables([Projects])
 
 @app.route('/')
 def index():
@@ -128,6 +138,26 @@ def hobbies():
 @app.route('/timeline')
 def timeline():
     return render_template('timeline.html')
+
+
+@app.route('/api/projects', methods=['POST']) 
+def post_projects():
+    title = request.form['title']
+    description = request.form['description']
+    link = request.form['link']
+    image = request.form['image']
+    project = Projects.create(title = title, description = description, link = link, image = image)
+
+    return model_to_dict(project)
+
+@app.route('/api/projects', methods=['GET'])
+def get_projects():
+    return {
+            'projects': [
+                model_to_dict(p)
+                for p in Projects.select().order_by(Projects.created_at.desc())
+                ]
+            }
 
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
