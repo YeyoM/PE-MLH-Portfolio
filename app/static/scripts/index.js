@@ -9,118 +9,118 @@ const textToWrite = `import { Life } from 'Diego';
   cd Diego
 
   execute Diego.js
-  `;
+  `
 
 // Variable taht holds current text being written in terminal
-let currentText = '';
-let animationStared = false;
+let currentText = ''
+let animationStared = false
 
 // time in ms to wait before writing next character
-const minTime = 50;
-const maxTime = 150;
-let startX, startY;
+const minTime = 50
+const maxTime = 150
+let startX, startY
 
 window.onload = () => {
   if (window.innerWidth < 768) {
-    $('.loading-text.text-promt').html('Tap to continue');
+    $('.loading-text.text-promt').html('Tap anywhere in screen to continue or tap <a href="#" style="color:inherit;text-decoration:underline" onclick="return transitionOut()">here to skip intro</a>')
   }
 
   document.body.onkeyup = async function(e) {
     if ((e.key == " " || e.code == "Space") && !animationStared) {
-      exectuteTransition();
+      exectuteTransition()
+    }
+    else if (e.key == "Escape" || e.code == "Escape") {
+      transitionOut() 
     }
   }
 
 
   // Phone on click event
   window.addEventListener('touchstart', function(event) {
-    startX = event.touches[0].clientX;
-    startY = event.touches[0].clientY;
-  });
+    startX = event.touches[0].clientX
+    startY = event.touches[0].clientY
+  })
 
   window.addEventListener('touchend', function(event) {
-    const endX = event.changedTouches[0].clientX;
-    const endY = event.changedTouches[0].clientY;
+    const endX = event.changedTouches[0].clientX
+    const endY = event.changedTouches[0].clientY
 
-    const diffX = Math.abs(startX - endX);
-    const diffY = Math.abs(startY - endY);
+    const diffX = Math.abs(startX - endX)
+    const diffY = Math.abs(startY - endY)
 
     if (diffX < 10 && diffY < 10 && !animationStared) {
-      exectuteTransition();
+      exectuteTransition()
     }
-  });
-};
-
-
+  })
+}
 
 async function exectuteTransition() {
-  animationStared = true;
-  $('.text-promt').css('opacity', 0);
+  animationStared = true
+  $('.text-promt').css('opacity', 0)
 
   // Start playing computer startup noise
-  const startUpData = await playStartUp();
+  const startUpData = await playStartUp()
 
   setTimeout(async () => {
     // remove loading text and show writing text
-    $('.loading-text').remove();
-    $('.monitor-writing-text').removeClass('hidden');
+    $('.loading-text').remove()
+    $('.monitor-writing-text').removeClass('hidden')
     
     // Start playing keyboard typing noise
-    const keyboardData = await playKeyboard();
+    const keyboardData = await playKeyboard()
 
     // Iterate over each character of the text to write and add it to the current text
     for (var i = 0; i < textToWrite.length; i++) {
       // check for new lines
       if (textToWrite[i] === '\n') {
-        currentText += '<br>';
+        currentText += '<br>'
       }
 
-      currentText += textToWrite[i];
+      currentText += textToWrite[i]
 
       // set the current text to the monitor
-      $('.monitor-writing-text').html(currentText);
+      $('.monitor-writing-text').html(currentText)
 
       // await a random time before writing the next character
-      await new Promise(r => setTimeout(r, Math.floor(Math.random() * (maxTime - minTime + 1) + minTime)));
+      await new Promise(r => setTimeout(r, Math.floor(Math.random() * (maxTime - minTime + 1) + minTime)))
     }
 
     // Start exit sound effect
     setTimeout(() => {
-      playFadeOutSound();
       // stop the sound effects
-      startUpData.sound.fade(0.7, 0, 1000, startUpData.id1);
-      keyboardData.sound.fade(0.9, 0, 1000, keyboardData.id1);
-    }, 500);
+      startUpData.sound.fade(0.7, 0, 1000, startUpData.id1)
+      keyboardData.sound.fade(0.9, 0, 1000, keyboardData.id1)
+    }, 500)
 
-    transitionOut();
-  }, 3000);
+    transitionOut()
+  }, 3000)
 }
 
 
 function transitionOut() {
   // transition the whole page out
-  $('.wrapper').css('opacity', 0);
+  $('.wrapper').css('opacity', 0)
 
   setTimeout(() => {
-    $('.noise-wrapper').css('opacity', 0.05);
-  }, 3000);
+    $('.noise-wrapper').css('opacity', 0.05)
+  }, 1500)
 
   // redirect the user to the next page
   setTimeout(() => {
-    window.location.href = '/welcome';
-  }, 4500);
+    window.location.href = '/welcome'
+  }, 1500)
 }
 
 async function playStartUp() {
-  const audioURL = '../static/sounds/computer_startup.mp3';
+  const audioURL = '../static/sounds/computer_startup.mp3'
 
   var sound = new Howl({
     src: [audioURL],
     loop: true,
-    volume: 0.7
+    volume: 0.1
   });
   
-  var id1 = sound.play();
+  var id1 = sound.play()
 
   return {
     sound: sound,
@@ -129,15 +129,15 @@ async function playStartUp() {
 }
 
 async function playKeyboard() {
-  const audioURL = '../static/sounds/keyboard_typing.mp3';
+  const audioURL = '../static/sounds/keyboard_typing.mp3'
 
   var sound = new Howl({
     src: [audioURL],
     loop: true,
-    volume: 0.9
-  });
+    volume: 0.5
+  })
   
-  var id1 = sound.play();
+  var id1 = sound.play()
 
   return {
     sound: sound,
@@ -145,14 +145,3 @@ async function playKeyboard() {
   }
 }
 
-
-async function playFadeOutSound() {
-  const audioURL = '../static/sounds/fadeout_sound.mp3';
-
-  var sound = new Howl({
-    src: [audioURL],
-    volume: 1.1
-  });
-  
-  sound.play();
-}
