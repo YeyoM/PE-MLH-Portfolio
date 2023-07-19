@@ -68,7 +68,8 @@ def hobbies():
 
 @app.route('/timeline')
 def timeline():
-    return render_template('timeline.html')
+    posts = get_time_line_posts_func()
+    return render_template('timeline.html', posts = posts["timeline_post"])
 
 @app.route('/api/projects', methods=['GET'])
 def get_projects():

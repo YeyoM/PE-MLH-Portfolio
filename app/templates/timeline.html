@@ -36,17 +36,17 @@
       </form>
     </section>
     <section class="posts-section" id="posts-section">
-      <!--
-          <div class="post">
-            <div class="post-left">
-              <p class="content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel cumque voluptatibus repellendus quo repudiandae modi, accusantium ratione optio? Quia, amet natus ipsum ipsam asperiores odio incidunt recusandae libero nesciunt culpa.</p>
-              <p class="name">Name</p>
-            </div>
-            <div class="post-right">
-              <p class="date">Date</p>
-            </div>
-          </div>
-          -->
+      {% for post in posts %}
+      <div class="post">
+        <div class="post-left">
+          <p class="content">{{ post.content }}</p>
+          <p class="name">{{ post.name }}</p>
+        </div>
+        <div class="post-right">
+          <p class="date">{{ post.date }}</p>
+        </div>
+      </div>
+      {% endfor %}
       </div>
     </section>
   </article>
