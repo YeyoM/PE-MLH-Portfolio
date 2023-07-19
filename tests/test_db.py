@@ -1,5 +1,4 @@
 import unittest
-import datetime
 from peewee import *
 
 from app.utils.mysql_init import TimeLinePost

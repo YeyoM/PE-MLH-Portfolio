@@ -2,9 +2,6 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 
-import os
-import datetime
-
 from app.utils.mysql_init import connect, create_tables
 from app.utils.api_experience import get_experience_func
 from app.utils.api_hobbies import get_hobbies_func
@@ -14,27 +11,9 @@ from app.utils.api_timeline import post_time_line_post_func, get_time_line_posts
 load_dotenv()
 app = Flask(__name__)
 
-mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-    user=os.getenv("MYSQL_USER"),
-    password=os.getenv("MYSQL_PASSWORD"),
-    host=os.getenv("MYSQL_HOST"),
-    port=3306
-)
-
-class TimelinePost(Model):
-    name = CharField()
-    email = CharField()
-    content = TextField()
-    created_at = DateTimeField(default=datetime.datetime.now)
-
-    class Meta:
-        database = mydb
-
-mydb.connect()
-
 # MYSQL Connection
-# connect()
-# create_tables()
+connect()
+create_tables()
 
 @app.route('/')
 def index():
