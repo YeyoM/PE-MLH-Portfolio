@@ -5,7 +5,7 @@ from peewee import *
 from app.utils.mysql_init import connect, create_tables
 from app.utils.api_experience import get_experience_func
 from app.utils.api_hobbies import get_hobbies_func
-from app.utils.api_projects import post_projects_func, get_projects_func
+from app.utils.api_projects import post_projects_func, get_projects_func, delete_projects_func
 from app.utils.api_timeline import post_time_line_post_func, get_time_line_posts_func, delete_time_line_posts_func
 
 load_dotenv()
@@ -33,17 +33,18 @@ def travel():
 
 @app.route('/projects')
 def projects():
-    req = get_projects()
-    projects = req["projects"]
-    return render_template('projects.html', projects = projects)
+    projects = get_projects()
+    return render_template('projects.html', projects = projects["projects"])
 
 @app.route('/experience')
 def experience():
-    return render_template('experience.html', experiences = get_experience_func())
+    experience = get_experience_func()
+    return render_template('experience.html', experiences = experience["experience"])
 
 @app.route('/hobbies')
 def hobbies():
-    return render_template('hobbies.html', hobbies = get_hobbies_func())
+    hobbies = get_hobbies_func()
+    return render_template('hobbies.html', hobbies = hobbies["hobbies"])
 
 @app.route('/timeline')
 def timeline():
@@ -57,6 +58,10 @@ def get_projects():
 @app.route('/api/projects', methods=['POST']) 
 def post_projects():
     return post_projects_func(request)
+
+@app.route('/api/projects', methods=['DELETE'])
+def delete_projects():
+    return delete_projects_func(request)
 
 @app.route('/api/timeline_post', methods=['GET'])
 def get_time_line_posts():
