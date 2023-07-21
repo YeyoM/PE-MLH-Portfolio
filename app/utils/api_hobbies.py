@@ -1,5 +1,5 @@
 def get_hobbies_func():
-    return [
+    return { 'hobbies': [
         {
             "name": "Being with Friends",
             "image": "../static/hobbies/friends_1.PNG"
@@ -16,4 +16,4 @@ def get_hobbies_func():
             "name": "Playing Basketball",
             "image": "../static/hobbies/basketball.PNG"
         },
-    ]
+    ]}
