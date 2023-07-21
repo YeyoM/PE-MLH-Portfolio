@@ -1,31 +1,13 @@
 import os 
-import datetime
 from peewee import *
 from dotenv import load_dotenv
+load_dotenv()  # Load environment variables --> Done for testing purposes
 
-# Load environment variables --> Done for testing purposes
-load_dotenv()
+from app.utils.get_database import get_database # Get database creation function 
 
-# Initialize database as None
-mydb = None
+from app.models.timeline_model import TimeLinePost
+from app.models.project_model  import Project
 
-# Function to get database connection depending on the environment (Testing or not)
-def get_database():
-    global mydb
-
-    if mydb is None:
-        if os.getenv("TESTING") == "true":
-            print("Running in test mode")
-            mydb = SqliteDatabase('file:memory?mode=memory&cache=shared', uri=True)
-        else:
-            mydb = MySQLDatabase(os.getenv("MYSQL_DATABASE"),
-                user=os.getenv("MYSQL_USER"),
-                password=os.getenv("MYSQL_PASSWORD"),
-                host=os.getenv("MYSQL_HOST"),
-                port=3306
-            )
-    
-    return mydb
 
 # Function to initialize database to prevent when testing
 def db_int():
@@ -41,29 +23,7 @@ def db_int():
             host=os.getenv("MYSQL_HOST"),
             port=3306
         )
-    
-
-# Models used to create tables
-class TimeLinePost(Model):
-    name = CharField()
-    email = CharField()
-    content = TextField()
-    created_at = DateTimeField(default = datetime.datetime.now)
-
-    class Meta:
-        database = get_database()
-
-class Projects(Model):
-    title = CharField()
-    image = CharField()
-    description = TextField()
-    link = CharField()
-    created_at = DateTimeField(default = datetime.datetime.now)
-
-    class Meta:
-        database = get_database()
-
-
+  
 def connect():
     # Get the correct database connection
     db = get_database()
@@ -83,7 +43,7 @@ def create_tables():
 
     try:
         db.create_tables([TimeLinePost])
-        db.create_tables([Projects])
+        db.create_tables([Project])
         print("Created tables successfully")
     except OperationalError as e:
         print("Error creating tables")
