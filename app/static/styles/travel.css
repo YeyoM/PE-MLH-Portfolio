@@ -109,7 +109,7 @@ body {
 @media (max-width: 768px) {
   #title {
     font-size: 4rem;
-    top: 3rem;
+    top: 2rem;
   }
 
   .map-wrapper {
