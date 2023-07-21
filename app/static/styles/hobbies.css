@@ -134,7 +134,7 @@ body {
   .hobbies-container h1 {
     font-size: 6rem;
     padding: 2rem 4rem;
-    margin-bottom: -4rem;
+    margin-bottom: 4rem;
   }
 
   .images-container {
@@ -147,6 +147,14 @@ body {
     grid-gap: 2rem;
     padding: 1rem;
     margin: 0 1rem;
+  }
+
+  .images-container li {
+    margin: 1rem;
+  }
+
+  .images-container li:nth-child(odd) {
+    margin-top: 1rem;
   }
 
   .images-container img {
