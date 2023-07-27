@@ -19,7 +19,7 @@ function generateTemplate({name, created_at, content}) {
 }
 
 function getDataApi() {
-  return fetch('/api/timeline_post', { method: 'GET' })
+  return fetch('/api/get_timeline_posts', { method: 'GET' })
     .then((response) => response.json())
     .then((data) => {
       let posts = data.timeline_post
