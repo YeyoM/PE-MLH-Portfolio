@@ -19,7 +19,7 @@ class AppTestCase(unittest.TestCase):
 
   def test_timeline(self):
     # Testing timeline GET to see if it's empty
-    response = self.client.get('/api/timeline_post')
+    response = self.client.get('/api/get_timeline_posts')
     assert response.status_code == 200
     assert response.is_json
     json = response.get_json()
@@ -33,7 +33,7 @@ class AppTestCase(unittest.TestCase):
     assert html.count('<div class="post">') == 0
 
     # Test timeline POST and check the returned values
-    response = self.client.post('/api/timeline_post', data = {
+    response = self.client.post('/api/post_timeline_posts', data = {
       "name": "John Doe",
       "email": "John@mail.com",
       "content": "Hello world, I'm John!"})
@@ -45,7 +45,7 @@ class AppTestCase(unittest.TestCase):
     assert json["content"] == "Hello world, I'm John!"
 
     # Test timeline GET to see if it was published correctly
-    response = self.client.get('/api/timeline_post')
+    response = self.client.get('/api/get_timeline_posts')
     assert response.status_code == 200
     assert response.is_json
     json = response.get_json()
@@ -67,7 +67,7 @@ class AppTestCase(unittest.TestCase):
 
   def test_malformed_timeline_post(self):
     # POST request missing name
-    response = self.client.post('/api/timeline_post', data = {
+    response = self.client.post('/api/post_timeline_posts', data = {
       "name": "",
       "email": "john@example.com",
       "content": "Hello world, I'm John!"})
@@ -76,7 +76,7 @@ class AppTestCase(unittest.TestCase):
     assert "Invalid name" in html
     
     # POST request missing content
-    response = self.client.post('/api/timeline_post', data = {
+    response = self.client.post('/api/post_timeline_posts', data = {
       "name": "John Doe",
       "email": "john@example.com", 
       "content": ""})
@@ -85,7 +85,7 @@ class AppTestCase(unittest.TestCase):
     assert "Invalid content" in html
 
     # POST request missing malformed email
-    response = self.client.post('/api/timeline_post', data = {
+    response = self.client.post('/api/post_timeline_posts', data = {
       "name": "John Doe",
       "email": "not-an-email", 
       "content": "Hello world, I'm John!"})

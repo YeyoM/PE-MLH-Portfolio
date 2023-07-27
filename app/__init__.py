@@ -63,14 +63,14 @@ def post_projects():
 def delete_projects():
     return delete_projects_func(request)
 
-@app.route('/api/timeline_post', methods=['GET'])
+@app.route('/api/get_timeline_posts', methods=['GET'])
 def get_time_line_posts():
     return get_time_line_posts_func()
 
-@app.route('/api/timeline_post', methods=['POST'])
+@app.route('/api/post_timeline_posts', methods=['POST'])
 def post_time_line_post():
     return post_time_line_post_func(request)
 
-@app.route('/api/timeline_post', methods=['DELETE'])
+@app.route('/api/delete_timeline_post', methods=['DELETE'])
 def delete_time_line_posts():
     return delete_time_line_posts_func(request)
