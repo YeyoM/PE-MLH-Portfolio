@@ -8,6 +8,8 @@ echo "Updating git repo"
 # Update git repo
 git fetch && git reset origin/main --hard 
 
+chmod +x redeploy_site.sh
+
 docker compose -f docker-compose.prod.yml down
 
 docker compose -f docker-compose.prod.yml up -d --build
