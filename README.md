@@ -1,79 +1,156 @@
-# Production Engineering - Week 1 - Portfolio Site
+# Get Started
 
-Welcome to the MLH Fellowship! During Week 1, you'll be using Flask to build a portfolio site. This site will be the foundation for activities we do in future weeks so spend time this week making it your own and reflect your personality!
+Hi everyone! Welcome to the first project of the MLH PE Fellowship powered by META. This project is a portfolio website that will be built using Flask. The goal of this project is to get to know different technologies and tools that will be used during the fellowship such as docker, nginx, mysql, etc.
 
-## Tasks
+## Requirements for local development (No Docker)
 
-Once you've got your portfolio downloaded and running using the instructions below, you should attempt to complete the following tasks.
+- Python 3
+- Pyenv
+- Mysql server
 
-For each of these tasks, you should create an [Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues) and work on them in a new [branch](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches). When the task has been completed, you should open a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) and get another fellow in your pod to give you feedback before merging it in.
+## Requirements for local development (With Docker)
 
-*Note: Make sure to include a link to the Issue you're progressing on inside of your Pull Request so your reviewer knows what you're progressing on!*
+- Python 3
+- Pyenv
+- Docker
+## Get a fresh copy of the repository
 
-### GitHub Tasks
-- [x] Create Issues for each task below
-- [x] Progress on each task in a new branch
-- [x] Open a Pull Request when a task is finished to get feedback
+Once you have the requirements installed, follow the next steps to get a local development environment up and running:
 
-### Portfolio Tasks
-- [x] Add a photo of yourself to the website
-- [x] Add an "About youself" section to the website.
-- [x] Add your previous work experiences
-- [x] Add your hobbies (including images)
-- [x] Add your current/previous education
-- [x] Add a map of all the cool locations/countries you visited
+1. Clone the repository
 
-### Flask Tasks
-- [x] Get your Flask app running locally on your machine using the instructions below.
-- [x] Add a template for adding multiple work experiences/education/hobbies using [Jinja](https://jinja.palletsprojects.com/en/3.0.x/api/#basics)
-- [x] Create a new page to display hobbies.
-- [x] Add a menu bar that dynamically displays other pages in the app
-
-
-## Getting Started
-
-You need to do all your progress here.
-
-## Installation
-
-Make sure you have python3 and pip installed
-
-Create and activate virtual environment using virtualenv
 ```bash
-$ python -m venv python3-virtualenv
-$ source python3-virtualenv/bin/activate
+git clone https://github.com/YeyoM/PE-MLH-Portfolio.git
 ```
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all dependencies!
+### Get the project up and running (With Docker)
+
+2. Create a .env file and add the following:
+
+```bash
+URL=localhost:5000
+TESTING=False
+MYSQL_HOST=mysql # This is the name of the mysql service in the docker-compose.yml file
+MYSQL_USER=mysql_user # This is the user that will be used to connect to the database 
+MYSQL_PASSWORD=mysql_password # This is the password that will be used to connect to the database
+MYSQL_DATABASE=myportfoliodb # This is the name of the database 
+MYSQL_ROOT_PASSWORD=root_password # This is the password that will be used for the root user in the database
+```
+
+3. Run the application on Docker
+
+```bash
+docker compose up
+```
+
+### Get the project up and running (Without Docker)
+
+2. Create a virtual environment
+
+```bash
+cd PE-MLH-Portfolio
+python -m venv python3-virtualenv
+source python3-virtualenv/bin/activate
+```
+
+3. Install the requirements
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Usage
+4. Create a .env file and add the following:
 
-Create a .env file using the example.env template (make a copy using the variables inside of the template)
-
-Start flask development server
 ```bash
-$ export FLASK_ENV=development
-$ flask run
+URL=localhost:5000
+TESTING=False
+MYSQL_HOST=localhost # This is the name of the mysql service in the docker-compose.yml file
+MYSQL_USER=mysql_user # This is the user that will be used to connect to the database 
+MYSQL_PASSWORD=mysql_password # This is the password that will be used to connect to the database
+MYSQL_DATABASE=myportfoliodb # This is the name of the database 
 ```
 
-You should get a response like this in the terminal:
-```
-❯ flask run
- * Environment: development
- * Debug mode: on
- * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+5. Run the application
+
+```bash
+flask run --host=0.0.0.0
 ```
 
-You'll now be able to access the website at `localhost:5000` or `127.0.0.1:5000` in the browser! 
+## Testing
 
-*Note: The portfolio site will only work on your local machine while you have it running inside of your terminal. We'll go through how to host it in the cloud in the next few weeks!* 
+1. Change the TESTING variable in the .env file to True
 
-## Contributing
+2. Run the tests
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+```bash
+python -m unittest discover -v tests
+```
 
-Please make sure to update tests as appropriate.
+## API Documentation
+
+### Projects
+
+#### GET /api/projects
+
+Returns a list of all the projects
+
+#### POST /api/projects
+
+Creates a new project
+
+##### Parameters
+
+- title: The name of the project
+- description: The description of the project
+- link: The link to the project
+- image: The image of the project (path to the image)
+
+#### DELETE /api/projects/
+
+Deletes a project
+
+##### Parameters
+
+- id: The id of the project
+or
+- title: The title of the project
+
+### Timeline
+
+#### GET /api/get_timeline_posts
+
+Returns a list of all the posts in the timeline
+
+#### POST /api/post_timeline_posts
+
+Creates a new post in the timeline
+
+##### Parameters
+
+- name: The name of the person that made the post
+- email: The email of the person that made the post
+- content: The content of the post
+
+#### DELETE /api/delete_timeline_post
+
+Deletes a post in the timeline
+
+##### Parameters
+
+- id: The id of the post
+or
+- name: The name of the person that made the post
+
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+## Authors
+
+- **Diego Moreno** - [YeyoM](https://github.com/YeyoM)
+
+## Contributors
+
+- **Diego Gutierrez** - [Diegogtz03](https://github.com/Diegogtz03)
