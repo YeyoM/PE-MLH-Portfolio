@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap');
 
+@font-face {
+  font-family: 'SFDistantGalaxy';
+  src: url('../fonts/sf_distant_galaxy/SFDistantGalaxyOutlineItalic.ttf');
+}
+
 body {
   font-family: 'Gemunu Libre', sans-serif;
   background-color: #161616;
@@ -17,7 +22,7 @@ body {
 }
 
 #title {
-  color: white;
+  color: #fdd81f;
   text-align: center;
   font-size: 6rem;
   margin: 0;
@@ -28,6 +33,7 @@ body {
   left: 0;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'SFDistantGalaxy', sans-serif;
 }
 
 .map-wrapper {
@@ -109,7 +115,7 @@ body {
 @media (max-width: 768px) {
   #title {
     font-size: 4rem;
-    top: 2rem;
+    top: 3rem;
   }
 
   .map-wrapper {
