@@ -69,7 +69,7 @@
     if (name.value == "") {
       notification.style.display = "block"
       notification.innerHTML = "Name is required"
-      notification.style.backgroundColor = "#FF5454"
+      notification.style.backgroundColor = "#ff2323"
       setTimeout(function () {
         notification.style.display = "none"
       }, 3000)
@@ -79,7 +79,7 @@
     if (email.value == "") {
       notification.style.display = "block"
       notification.innerHTML = "Email is required"
-      notification.style.backgroundColor = "#FF5454"
+      notification.style.backgroundColor = "#ff2323"
       setTimeout(function () {
         notification.style.display = "none"
       }, 3000)
@@ -89,7 +89,7 @@
     if (content.value == "") {
       notification.style.display = "block"
       notification.innerHTML = "Content is required"
-      notification.style.backgroundColor = "#FF5454"
+      notification.style.backgroundColor = "#ff2323"
       setTimeout(function () {
         notification.style.display = "none"
       }, 3000)
@@ -99,7 +99,7 @@
     if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value))) {
       notification.style.display = "block"
       notification.innerHTML = "Invalid email address"
-      notification.style.backgroundColor = "#FF5454"
+      notification.style.backgroundColor = "#ff2323"
       setTimeout(function () {
         notification.style.display = "none"
       }, 3000)
@@ -122,7 +122,7 @@
         if (!response.ok) {
           notification.style.display = "block"
           notification.innerHTML = "Something went wrong"
-          notification.style.backgroundColor = "#FF5454"
+          notification.style.backgroundColor = "#ff2323"
           setTimeout(function () {
             notification.style.display = "none"
           }, 3000)
@@ -137,7 +137,7 @@
         content.value = ""
         notification.style.display = "block"
         notification.innerHTML = "Message sent"
-        notification.style.backgroundColor = "#99E399"
+        notification.style.backgroundColor = "#23ff36"
         getDataApi()
         setTimeout(function () {
           notification.style.display = "none"
