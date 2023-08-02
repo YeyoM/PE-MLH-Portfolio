@@ -86,7 +86,7 @@ body {
 
 .blue-orb {
   offset-distance: -30%;
-  background-color: #373F85;
+  background-color: #001aff;
   animation-direction: reverse;
   animation-play-state: paused;
 }
@@ -98,7 +98,7 @@ body {
 }
 
 .purple-orb {
-  background-color: #604192;
+  background-color: #23ff36;
   animation-play-state: paused;
 }
 
