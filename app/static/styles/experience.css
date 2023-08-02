@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap');
 
+@font-face {
+  font-family: 'SFDistantGalaxy';
+  src: url('../fonts/sf_distant_galaxy/SFDistantGalaxyOutlineItalic.ttf');
+}
+
 body {
   background-color: #161616;
   margin: 0;
@@ -34,7 +39,7 @@ body {
 
 .blue-orb {
   right: 30px;
-  background-color: #373F85;
+  background-color: #001aff82;
   animation: 3s linear .1s alternate blue-orb-movement;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -42,7 +47,7 @@ body {
 
 .purple-orb {
   left: 30px;
-  background-color: #604192;
+  background-color: #00b7ff79;
   animation: 3s linear .1s alternate purple-orb-movement;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -79,10 +84,10 @@ article {
 }
 
 .title h1 {
-  font-family: 'Gemunu Libre', sans-serif;
-  color: white;
+  font-family: 'SFDistantGalaxy', 'Gemunu Libre', sans-serif;
+  color: #fdd81f;
   text-align: center;
-  font-size: 8rem;
+  font-size: 6.5rem;
   width: fit-content;
 }
 
@@ -181,6 +186,7 @@ article {
 
   .title h1 {
     margin: 10rem 0 2rem  0;
+    font-size: 4rem;
   }
 }
 
