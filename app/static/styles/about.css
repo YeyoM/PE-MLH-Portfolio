@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@200;300;400;500;600;700;800&display=swap');
 
+@font-face {
+  font-family: 'SFDistantGalaxy';
+  src: url('../fonts/sf_distant_galaxy/SFDistantGalaxyOutlineItalic.ttf');
+}
+
 body {
   background-color: #161616;
   margin: 0;
@@ -35,16 +40,16 @@ body {
 
 .blue-orb {
   right: 30px;
-  background-color: #373F85;
+  background-color: #001aff82;
   animation: 3s linear .1s alternate blue-orb-movement;
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
 
-.purple-orb {
+.green-orb {
   left: 30px;
-  background-color: #604192;
-  animation: 3s linear .1s alternate purple-orb-movement;
+  background-color: #00b7ff79;
+  animation: 3s linear .1s alternate green-orb-movement;
   animation-direction: alternate;
   animation-iteration-count: infinite;
   animation-delay: 2s;
@@ -73,10 +78,10 @@ article {
 }
 
 .about-container h1 {
-  font-family: 'Gemunu Libre', sans-serif;
-  color: white;
+  font-family: 'SFDistantGalaxy', 'Gemunu Libre', sans-serif;
+  color: #fdd81f;
   text-align: center;
-  font-size: 8rem;
+  font-size : 5rem;
   margin: 0;
   width: fit-content;
   right: 0;
@@ -98,7 +103,7 @@ article {
 }
 
 .about-paragraph p {
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.2rem;
   font-weight: 200;
   color: #fff;
@@ -115,7 +120,7 @@ article {
 }
 
 .about-paragraph ul li {
-  font-family: Verdana;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1.1rem;
   font-weight: lighter;
   color: #fff;
@@ -136,12 +141,12 @@ article {
   max-width: 300px;
   object-fit: cover;
   border-radius: 50%;
-  -webkit-box-shadow: 5px 5px 15px 5px rgba(96,65,146,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55); 
-  box-shadow: 5px 5px 15px 5px rgba(96,65,146,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55), -12px -1px 24px 0px rgba(55,63,133,0.55);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(5, 218, 255, 0.55), -12px -1px 24px 0px rgba(4, 29, 255, 0.55), -12px -1px 24px 0px rgba(0, 136, 255, 0.55); 
+  box-shadow: 5px 5px 15px 5px rgba(5, 218, 255, 0.55), -12px -1px 24px 0px rgba(4, 29, 255, 0.55), -12px -1px 24px 0px rgba(0, 136, 255, 0.55);
 }
 
 .highlight {
-  background: linear-gradient(to right, #e7d3ff,#bcc0ff);
+  background: linear-gradient(to right, #fdd81f, #fdd81f);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
 }
@@ -153,7 +158,7 @@ article {
   }
 
   .about-container h1 {
-    font-size: 8rem;
+    font-size: 6rem;
   }
 
   .about-photo img {
@@ -168,7 +173,7 @@ article {
   }
 
   .about-container h1 {
-    font-size: 7rem;
+    font-size: 5rem;
   }
 
   .about-photo img {
@@ -188,7 +193,7 @@ article {
   }
 
   .about-container h1 {
-    font-size: 6rem;
+    font-size: 3.8rem;
     margin-bottom: 0;
     margin-top: 3rem;
     align-self: center;
@@ -235,7 +240,7 @@ article {
   }
 }
 
-@keyframes purple-orb-movement {
+@keyframes green-orb-movement {
   0% {
     bottom: 3rem;
   } 25% {
