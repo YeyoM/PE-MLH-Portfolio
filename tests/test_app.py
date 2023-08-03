@@ -12,10 +12,10 @@ class AppTestCase(unittest.TestCase):
     response = self.client.get('/')
     assert response.status_code == 200
     html = response.get_data(as_text=True)
-    assert '<title>Loading...</title>' in html
-    assert 'LOADING' in html
-    assert "Press 'SPACE' to begin or 'ESC' to skip intr to skip intro" in html
+    assert 'A long time ago, in a galaxy far, far away....' in html
+    assert '<br> <span>Type esc or click to skip</span>' in html
     assert '<script src="../static/scripts/index.js"></script>' in html
+    assert '<script src="../static/scripts/stars.js"></script>' in html
 
   def test_timeline(self):
     # Testing timeline GET to see if it's empty
