@@ -1,6 +1,8 @@
-# Get Started
+# Welcome to the MLH PE Fellowship Portfolio Project
 
 Hi everyone! Welcome to the first project of the MLH PE Fellowship powered by META. This project is a portfolio website that will be built using Flask. The goal of this project is to get to know different technologies and tools that will be used during the fellowship such as docker, nginx, mysql, etc.
+
+## Get Started Here
 
 ## Requirements for local development (No Docker)
 
@@ -141,7 +143,11 @@ Deletes a post in the timeline
 or
 - name: The name of the person that made the post
 
+## Contributing
 
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 
 ## License
 
