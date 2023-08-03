@@ -19,13 +19,12 @@ body {
   transition-delay: 0.3s;
 }
 
-.noise-wrapper {
-  position: absolute;
-  background-image: url('../img/noise.png');
-  opacity: 0.05;
-  height: 100vh;
-  width: 100vw;
-  z-index: -1;
+.stars {
+	position: fixed;
+	width: 1px;
+	height: 1px;
+	background-color: #fff;
+	z-index: 2;
 }
 
 .main-information-wrapper {

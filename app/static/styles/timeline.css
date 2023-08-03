@@ -69,6 +69,14 @@ body {
   z-index: -1;
 }
 
+.stars {
+	position: fixed;
+	width: 1px;
+	height: 1px;
+	background-color: #fff;
+	z-index: 2;
+}
+
 .timeline-wrapper {
   width: 100%;
   display: flex;
