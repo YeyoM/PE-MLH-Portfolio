@@ -206,6 +206,35 @@ h1, h2, h3, h4, p {
   width: 0px;
 }
 
+.popup_ {
+  height: 38px;
+  width: 38px;
+  color: #fff;
+  position: relative;
+  cursor: pointer;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  &:after {
+    content: attr(data-popuptext);
+    color: #000;
+    background: #fdd81f;
+    border-radius: 10px;
+    opacity: 0;
+    top: 55px;
+    left: 0;
+    position: absolute;
+    transition: 200ms ease;
+    white-space: nowrap;
+    max-height: 0;
+  }
+  
+  &:hover:after {
+    opacity: 1;
+    max-height: 200px;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
 @keyframes blue-orb-movement {
   0% {
     bottom: 3rem;

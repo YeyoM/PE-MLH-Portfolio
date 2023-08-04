@@ -24,8 +24,16 @@
 
           <div class="contact-button-wrapper">
             <div class="buttons-wrapper">
-              <a class="menu-button"id="mail-button" href="mailto:{{ email_address }}">
-                <img src="../static/icons/mail.svg" alt="Mail send icon">
+              <a class="menu-button" id="mail-button" href="mailto:{{ email_address }}">
+                <span class="popup_" data-popuptext="Mail me">
+                  <img src="../static/icons/mail.svg" alt="Mail send icon">
+                </span>
+              </a>
+
+              <a class="menu-button" id="resume-button" href="https://drive.google.com/file/d/1ofyxwcS4hPEueNt7ZfQlibo1MRdBq_ie/view?usp=sharing" target="_blank">
+                <span class="popup_" data-popuptext="Download Resume">
+                  <img src="../static/icons/document.svg" alt="Download Resume icon">
+                </span>
               </a>
   
               <a class="menu-button contact-menu-button" href="https://github.com/{{ github_username }}" target="_blank">
