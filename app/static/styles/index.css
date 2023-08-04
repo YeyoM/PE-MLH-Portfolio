@@ -120,3 +120,14 @@ p {
 	text-transform: uppercase;
 	font-size: 3.5rem;
 }
+
+@media screen and (max-width: 600px) {
+  #scroller {
+    font-size: 120%;
+    width: 100vw;
+    margin-left: -10.2em;
+  }
+  #subtitle {
+    font-size: 2rem;
+  }
+} 
