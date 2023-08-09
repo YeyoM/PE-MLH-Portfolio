@@ -8,11 +8,11 @@ def post_time_line_post_func(request):
     email = request.form['email']
 
     # Name Validation (empty or not defined)
-    if (name == "") or (name is None):
+    if (name == "") or (name is None) or (not name.strip()):
         return "Invalid name", 400
 
     # Content Validation (empty or not defined)
-    if (content == "") or (content is None):
+    if (content == "") or (content is None) or (not content.strip()):
         return "Invalid content", 400
 
     # Email Validation (emtpy, not defined or invalid)
