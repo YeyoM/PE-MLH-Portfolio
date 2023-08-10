@@ -68,7 +68,7 @@ class AppTestCase(unittest.TestCase):
   def test_malformed_timeline_post(self):
     # POST request missing name
     response = self.client.post('/api/post_timeline_posts', data = {
-      "name": " ",
+      "name": "   ",
       "email": "john@example.com",
       "content": "Hello world, I'm John!"})
     assert response.status_code == 400
