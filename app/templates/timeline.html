@@ -65,7 +65,7 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault()
 
-    if (name.value == "") {
+    if (name.value == "" || name.value.trim() === "") {
       notification.style.display = "block"
       notification.innerHTML = "Name is required"
       notification.style.backgroundColor = "#ff2323"
@@ -75,7 +75,7 @@
       return false
     }
 
-    if (email.value == "") {
+    if (email.value == "" || email.value.trim() === "") {
       notification.style.display = "block"
       notification.innerHTML = "Email is required"
       notification.style.backgroundColor = "#ff2323"
@@ -85,7 +85,7 @@
       return false
     }
 
-    if (content.value == "") {
+    if (content.value == "" || content.value.trim() === "") {
       notification.style.display = "block"
       notification.innerHTML = "Content is required"
       notification.style.backgroundColor = "#ff2323"
