@@ -20,11 +20,26 @@
       <section class="projects-wrapper">
         <h1>Projects</h1>
         <div class="projects-container">
-          <ul>
+          <ul class="projects-list">
             {% for project in projects %}
-            <li>
+            <li class="project">
               <img src="{{ project.image }}" class="open-modal" alt="" id="open-modal-{{ project.id }}">
               <h4>{{ project.title }}</h4>
+              <ul class="icons-list">
+                {% for icon in project.icons %}
+                {% if icon.name == "Github" %}
+                  <li class="modal-icon-item">
+                    <a href="{{ project.repo }}">
+                      <img src="{{ icon.image }}" alt="{{ icon.name }}" class="modal-icon">
+                    </a>
+                  </li>
+                {% else %}
+                  <li class="modal-icon-item">
+                    <img src="{{ icon.image }}" alt="{{ icon.name }}" class="modal-icon">
+                  </li>
+                {% endif %}
+              {% endfor %}
+              </ul>
             </li>
             <dialog class="modal" id="modal-{{ project.id }}">
               <img src="../static/icons/close.svg" alt="close-btn" class="close-btn" id="close-modal-{{ project.id }}">
@@ -33,7 +48,23 @@
                 <img src="{{ project.image }}" alt="project1" class="modal-img">
                 <p class="modal-description">
                   {{ project.description }} <a href="{{ project.link }}" class="project-link">here</a>.
+                  Click on the Github icon to view the repository.
                 </p>
+                <ul class="modal-icons-list">
+                  {% for icon in project.icons %}
+                    {% if icon.name == "Github" %}
+                      <li class="modal-icon-item">
+                        <a href="{{ project.repo }}">
+                          <img src="{{ icon.image }}" alt="{{ icon.name }}" class="modal-icon">
+                        </a>
+                      </li>
+                    {% else %}
+                      <li class="modal-icon-item">
+                        <img src="{{ icon.image }}" alt="{{ icon.name }}" class="modal-icon">
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
               </div>
             </dialog>
             {% endfor %}
