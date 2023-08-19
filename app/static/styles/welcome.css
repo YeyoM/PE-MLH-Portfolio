@@ -5,7 +5,7 @@
 
 body {
   font-family: 'StarJedi', 'Gemunu Libre', sans-serif;
-  color: #fdd81f;
+  color: white;
   background-color: #161616;
   overflow: hidden;
   margin: 0;
@@ -44,13 +44,13 @@ body {
 }
 
 #welcome-span {
-  font-size : clamp(4rem, 12vw, 10rem);
+  font-size : clamp(1.6rem, 2.4rem, 4rem);
 }
 
 #name-span,
 #subtitle-span {
-  font-size : clamp(2rem, 10vw, 5rem);
-  color: rgb(0 0 0 / 48%);
+  font-size : clamp(3rem, 4.6rem, 5.2rem);
+  color: #fdd81f;
 }
 
 .glowing-orbs {
@@ -75,7 +75,7 @@ body {
 
 .blue-orb {
   right: 30px;
-  background-color: #001aff;
+  background-color: #001aff76;
   animation: 3s linear .1s alternate blue-orb-movement;
   animation-direction: alternate;
   animation-iteration-count: infinite;
@@ -83,7 +83,7 @@ body {
 
 .green-orb {
   left: 30px;
-  background-color: #23ff36;
+  background-color: #23ff358c;
   animation: 3s linear .1s alternate purple-orb-movement;
   animation-direction: alternate;
   animation-iteration-count: infinite;
