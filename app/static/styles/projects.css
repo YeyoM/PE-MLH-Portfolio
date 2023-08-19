@@ -64,11 +64,12 @@ body {
 	width: 1px;
 	height: 1px;
 	background-color: #fff;
-	z-index: 2;
+	z-index: -10;
 }
 
 .open-modal {
   transition: all 0.2s ease-in-out;
+  z-index: 150;
 }
 
 .open-modal:hover {
