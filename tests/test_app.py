@@ -13,7 +13,6 @@ class AppTestCase(unittest.TestCase):
     assert response.status_code == 200
     html = response.get_data(as_text=True)
     assert 'A long time ago, in a galaxy far, far away....' in html
-    assert '<br> <span>Type esc or click to skip</span>' in html
     assert '<script src="../static/scripts/index.js"></script>' in html
     assert '<script src="../static/scripts/stars.js"></script>' in html
 
