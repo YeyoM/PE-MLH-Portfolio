@@ -22,12 +22,27 @@ body::after {
 	z-index: 1;
 }
 
+#skip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  z-index: 2;
+  color: #e81d1d;
+  background-color: #ffffffec;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  text-decoration: none;
+  border-bottom-left-radius: 1rem;
+}
+
 .stars {
 	position: absolute;
 	width: 1px;
 	height: 1px;
 	background-color: #fff;
-	z-index: -10;
+	z-index: 2;
 }
 
 .intro {
@@ -123,9 +138,9 @@ p {
 
 @media screen and (max-width: 600px) {
   #scroller {
-    font-size: 120%;
-    width: 100vw;
-    margin-left: -10.2em;
+    font-size: 130%;
+    width: 90vw;
+  	margin-left: -45vw;
   }
   #subtitle {
     font-size: 2rem;
