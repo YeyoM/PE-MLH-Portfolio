@@ -8,7 +8,7 @@
 body {
   background-color: #161616;
   margin: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
 
   display: flex;
@@ -191,7 +191,7 @@ article {
 
   .experience-wrapper {
     flex-direction: column;
-    margin-top: 50%;
+    margin-top: 2rem;
   }
   .title {
     border-right: none;
@@ -199,7 +199,7 @@ article {
   }
   .title h1 {
     font-size: 6rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
   .experience-container {
     margin-top: 2rem;
@@ -214,7 +214,7 @@ article {
   }
 
   .title h1 {
-    margin: 26rem 0 2rem  0;
+    margin: 1rem 0 2rem  0;
     font-size: 4rem;
   }
 }
