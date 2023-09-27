@@ -6,7 +6,6 @@ from app.utils.mysql_init import connect, create_tables
 from app.utils.api_experience import get_experience_func
 from app.utils.api_hobbies import get_hobbies_func
 from app.utils.api_projects import post_projects_func, get_projects_static_func, get_projects_func, delete_projects_func
-from app.utils.api_timeline import post_time_line_post_func, get_time_line_posts_func, delete_time_line_posts_func
 
 load_dotenv()
 app = Flask(__name__)
@@ -27,10 +26,6 @@ def welcome():
 def about():
     return render_template('about.html')
 
-@app.route('/travel')
-def travel():
-    return render_template('travel.html')
-
 @app.route('/projects')
 def projects():
     projects = get_projects()
@@ -46,11 +41,6 @@ def hobbies():
     hobbies = get_hobbies_func()
     return render_template('hobbies.html', hobbies = hobbies["hobbies"])
 
-@app.route('/timeline')
-def timeline():
-    posts = get_time_line_posts_func()
-    return render_template('timeline.html', posts = posts["timeline_post"])
-
 @app.route('/api/projects', methods=['GET'])
 def get_projects():
     return get_projects_static_func()
@@ -62,15 +52,3 @@ def post_projects():
 @app.route('/api/projects', methods=['DELETE'])
 def delete_projects():
     return delete_projects_func(request)
-
-@app.route('/api/get_timeline_posts', methods=['GET'])
-def get_time_line_posts():
-    return get_time_line_posts_func()
-
-@app.route('/api/post_timeline_posts', methods=['POST'])
-def post_time_line_post():
-    return post_time_line_post_func(request)
-
-@app.route('/api/delete_timeline_post', methods=['DELETE'])
-def delete_time_line_posts():
-    return delete_time_line_posts_func(request)
